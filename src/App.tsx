@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // @page
-import Landing from "Pages/landing/landing";
+import Landing from "pages/Landing/Landing";
 
 //------------------------------------------------------------------
 
