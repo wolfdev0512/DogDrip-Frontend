@@ -19,9 +19,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   return (
     <AppLayout>
       <Header />
-      {children}
+      {/* {children}
       <Footer />
-      <ScrollTop />
+      <ScrollTop /> */}
     </AppLayout>
   );
 };

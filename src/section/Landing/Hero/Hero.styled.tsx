@@ -28,7 +28,7 @@ export const TitleContainer = styled.div`
   box-sizing: border-box;
 `;
 export const Number = styled.div`
-  font-family: "Acme", sans-serif;
+  font-family: "Bakbak One", cursive;
   font-size: 60px;
   font-weight: 600;
   color: white;

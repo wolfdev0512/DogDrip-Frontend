@@ -1,13 +1,24 @@
 import React from "react";
 
 // @styled-component
-import { Layout, Container, Logo, Menu, MenuItem } from "./Header.styled";
+import {
+  Layout,
+  Container,
+  Logo,
+  Menu,
+  MenuItem,
+  MobileMenuButton,
+} from "./Header.styled";
 
 // @components
 import { WalletConnect } from "components/Button";
 
 // @data
 import { MenuItemList } from "utils/data/Header";
+
+// @assets
+import { BiMenu } from "react-icons/bi";
+
 //------------------------------------------------------------------
 
 const Header: React.FC = () => {
@@ -21,6 +32,9 @@ const Header: React.FC = () => {
           ))}
         </Menu>
         <WalletConnect />
+        <MobileMenuButton>
+          <BiMenu />
+        </MobileMenuButton>
       </Container>
     </Layout>
   );

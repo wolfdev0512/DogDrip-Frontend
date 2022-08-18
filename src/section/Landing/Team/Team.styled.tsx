@@ -11,7 +11,7 @@ export const Layout = styled.div`
   padding-top: 200px;
 
   box-sizing: border-box;
-  font-family: "Acme", sans-serif;
+  font-family: "Bakbak One", cursive;
 `;
 
 export const Container = styled.div`

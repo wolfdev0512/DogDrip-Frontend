@@ -10,7 +10,9 @@ export const Layout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: #11181e;
+
   padding: 20px 0px;
 
   z-index: 2;
@@ -26,7 +28,7 @@ export const Container = styled.div`
 `;
 export const Logo = styled.div`
   color: #07fea3;
-  font-family: "Acme", sans-serif;
+  font-family: "Bakbak One", cursive;
   font-size: 30px;
   font-weight: 600;
 
@@ -37,7 +39,7 @@ export const Menu = styled.div`
 `;
 export const MenuItem = styled.div`
   color: #fff;
-  font-family: "Acme", sans-serif;
+  font-family: "Bakbak One", cursive;
   font-size: 20px;
   font-weight: 500;
   padding: 10px 15px;
@@ -70,3 +72,5 @@ export const MenuItem = styled.div`
     }
   }
 `;
+
+export const MobileMenuButton = styled.div``;
