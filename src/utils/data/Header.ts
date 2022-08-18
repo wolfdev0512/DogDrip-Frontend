@@ -5,23 +5,23 @@ export const MenuItemList = [
   },
   {
     label: "ABOUT",
-    link: "/",
+    link: "#about",
   },
   {
     label: "MINT",
-    link: "/",
+    link: "#mint",
   },
   {
     label: "ROADMAP",
-    link: "/",
+    link: "#roadmap",
   },
   {
     label: "TEAM",
-    link: "/",
+    link: "#team",
   },
   {
     label: "FAQ",
-    link: "/",
+    link: "#faq",
   },
   {
     label: "AFFILIATE",

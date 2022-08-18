@@ -11,6 +11,6 @@ export const Layout = styled.div`
   padding: 20px 0px;
 
   color: #fff;
-  font-family: "Bakbak One", cursive;
+
   font-size: 20px;
 `;

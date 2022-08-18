@@ -15,7 +15,7 @@ import {
 } from "section/Landing";
 
 // @styled-component
-import { CollectionBackground, TeamBackground } from "./Page.styled";
+import { CollectionBackground, TeamBackground } from "./Landing.styled";
 
 //------------------------------------------------------
 

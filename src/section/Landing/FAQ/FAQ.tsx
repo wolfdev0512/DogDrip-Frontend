@@ -10,7 +10,7 @@ import Accordion from "react-bootstrap/Accordion";
 
 const Mint: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="faq">
       <Container>
         <Title>Frequently Asked Questions</Title>
 

@@ -21,7 +21,7 @@ import {
 
 const Roadmap: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="roadmap">
       <Container>
         <Title>Our Roadmap</Title>
         <RoadmapContainer>

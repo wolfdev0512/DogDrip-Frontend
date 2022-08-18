@@ -14,14 +14,12 @@ export const Layout = styled.div`
   box-sizing: border-box;
 `;
 export const Title = styled.div`
-  font-family: "Bakbak One", cursive;
   font-size: 40px;
   font-weight: 600;
   color: #07fea3;
   margin-bottom: 8px;
 `;
 export const Detail = styled.div`
-  font-family: "Bakbak One", cursive;
   font-size: 20px;
   font-weight: 600;
   color: white;

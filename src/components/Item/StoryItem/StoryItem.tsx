@@ -21,12 +21,10 @@ export const Image = styled.div`
   margin-right: 8px;
 `;
 export const Title = styled.div`
-  font-family: "Bakbak One", cursive;
   font-size: 32px;
   font-weight: 600;
 `;
 export const Detail = styled.div`
-  font-family: "Bakbak One", cursive;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;

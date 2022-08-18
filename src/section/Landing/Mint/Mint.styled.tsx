@@ -56,14 +56,12 @@ export const Title = styled.div`
   margin-top: 65px;
   margin-bottom: 20px;
 
-  font-family: "Bakbak One", cursive;
   font-size: 55px;
   font-weight: 600;
   color: white;
   text-align: center;
 `;
 export const Total = styled.div`
-  font-family: "Bakbak One", cursive;
   font-size: 17px;
   font-weight: 500;
   color: white;
@@ -76,7 +74,6 @@ export const Number = styled.span`
   font-size: 20px;
 `;
 export const Text = styled.div`
-  font-family: "Bakbak One", cursive;
   font-size: 16px;
   font-weight: 500;
   color: white;
@@ -121,7 +118,6 @@ export const MintButton = styled.div`
   margin-bottom: 20px;
   padding: 8px 70px;
 
-  font-family: "Bakbak One", cursive;
   font-size: 20px;
   font-weight: 500;
   text-align: center;

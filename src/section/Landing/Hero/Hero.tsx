@@ -19,7 +19,7 @@ import LandingHeroNFT from "assets/Landing-Hero-NFT.gif";
 
 const Hero: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="about">
       <Container>
         <TitleContainer>
           <Number>

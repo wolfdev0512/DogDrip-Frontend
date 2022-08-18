@@ -18,7 +18,7 @@ import TeamImage from "assets/team.jpg";
 
 const Mint: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="team">
       <Container>
         <Title>Meet The Team</Title>
         <TeamMembers>

@@ -8,7 +8,7 @@ import { ScrollTop } from "components/Button";
 // @styled-components
 import { AppLayout } from "./AppLayout.styled";
 
-// @Type
+// @type
 interface PageLayoutProps {
   children: React.ReactNode;
 }
@@ -19,9 +19,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   return (
     <AppLayout>
       <Header />
-      {/* {children}
+      {children}
       <Footer />
-      <ScrollTop /> */}
+      <ScrollTop />
     </AppLayout>
   );
 };

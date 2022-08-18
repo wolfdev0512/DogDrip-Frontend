@@ -25,10 +25,26 @@ export const Container = styled.div`
 
   width: 100%;
   max-width: 1320px;
+
+  @media screen and (max-width: 1440px) {
+    max-width: 1150px;
+  }
+  @media screen and (max-width: 1250px) {
+    max-width: 900px;
+  }
+  @media screen and (max-width: 1024px) {
+    max-width: 700px;
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 510px;
+  }
+  @media screen and (max-width: 570px) {
+    max-width: 90%;
+  }
 `;
 export const Logo = styled.div`
   color: #07fea3;
-  font-family: "Bakbak One", cursive;
+
   font-size: 30px;
   font-weight: 600;
 
@@ -36,16 +52,20 @@ export const Logo = styled.div`
 `;
 export const Menu = styled.div`
   display: flex;
+
+  @media screen and (max-width: 1440px) {
+    display: none;
+  }
 `;
 export const MenuItem = styled.div`
   color: #fff;
-  font-family: "Bakbak One", cursive;
+
   font-size: 20px;
   font-weight: 500;
-  padding: 10px 15px;
+  padding: 5px 10px;
 
   position: relative;
-  margin: 0 10px;
+  margin: 0 12px;
 
   text-align: center;
   text-decoration: none;
@@ -73,4 +93,117 @@ export const MenuItem = styled.div`
   }
 `;
 
-export const MobileMenuButton = styled.div``;
+export const MobileMenuButton = styled.div`
+  display: none;
+
+  @media screen and (max-width: 1440px) {
+    width: 50px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #07fea3;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-out;
+
+    :hover {
+      box-shadow: inset 50px 0 0 0 white;
+      color: #07fea3;
+    }
+  }
+  @media screen and (max-width: 570px) {
+    width: 35px;
+    height: 35px;
+  }
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+
+  & > :not(:last-child) {
+    margin-right: 20px;
+  }
+
+  @media screen and (max-width: 570px) {
+    & > :not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+`;
+
+export const MobileMenu = styled.div<{ show: boolean }>`
+  display: none;
+
+  @media screen and (max-width: 1440px) {
+    display: block;
+    position: absolute;
+    border-radius: 20px;
+    top: 85px;
+    left: 0;
+    width: 100vw;
+
+    z-index: 2;
+
+    visibility: ${({ show }) => (show ? "visible" : "collapse")};
+
+    & > div {
+      ${({ show }) =>
+        show
+          ? `opacity: 1;
+      visibility: visible;
+        &:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  &:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  &:nth-child(4) {
+    transition-delay: 0.3s;
+  }
+  &:nth-child(5) {
+    transition-delay: 0.4s;
+  }
+  &:nth-child(6) {
+    transition-delay: 0.5s;
+  }
+  &:nth-child(7) {
+    transition-delay: 0.6s;
+  }
+      `
+          : `opacity: 0;
+      visibility: hidden;
+        &:nth-child(1) {
+    transition-delay: 0.6s;
+  }
+  &:nth-child(2) {
+    transition-delay: 0.5s;
+  }
+  &:nth-child(3) {
+    transition-delay: 0.4s;
+  }
+  &:nth-child(4) {
+    transition-delay: 0.3s;
+  }
+  &:nth-child(5) {
+    transition-delay: 0.2s;
+  }
+  &:nth-child(6) {
+    transition-delay: 0.1s;
+  }`};
+    }
+  }
+`;
+export const MobileMenuItem = styled.div`
+  text-align: center;
+  background: #11181e;
+  color: white;
+  font-size: 17px;
+  padding: 5px 0px;
+  :hover {
+    color: #07fea3;
+  }
+`;

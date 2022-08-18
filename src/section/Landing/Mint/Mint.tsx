@@ -26,7 +26,7 @@ import LandingMintImage2 from "assets/Landing-Mint-Image2.png";
 
 const Mint: React.FC = () => {
   return (
-    <Layout>
+    <Layout id="mint">
       <Container>
         <Image1>
           <img src={LandingMintImage1} alt="No Image1" />

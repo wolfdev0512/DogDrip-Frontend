@@ -12,7 +12,6 @@ export const Layout = styled.div`
   padding-bottom: 200px;
 
   box-sizing: border-box;
-  font-family: "Bakbak One", cursive;
 `;
 export const Container = styled.div`
   width: 1500px;

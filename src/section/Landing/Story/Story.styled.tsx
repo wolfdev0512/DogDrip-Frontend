@@ -28,14 +28,11 @@ export const TitleContainer = styled.div`
   padding: 0px 20px;
 `;
 export const Title = styled.div`
-  font-family: "Bakbak One", cursive;
   font-size: 50px;
   font-weight: 600;
   color: #07fea3;
 `;
 export const Detail = styled.div`
-  font-family: "Bakbak One", cursive;
-
   margin-top: 30px;
   font-size: 26px;
   color: white;
