@@ -49,7 +49,7 @@ const Landing: React.FC = () => {
             1250: {
               slidesPerView: 4,
             },
-            768: {
+            800: {
               slidesPerView: 3,
             },
             570: {
