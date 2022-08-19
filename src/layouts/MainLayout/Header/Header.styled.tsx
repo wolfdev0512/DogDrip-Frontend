@@ -39,7 +39,7 @@ export const Container = styled.div`
     max-width: 510px;
   }
   @media screen and (max-width: 570px) {
-    max-width: 90%;
+    width: 90%;
   }
 `;
 export const Logo = styled.div`
@@ -57,7 +57,7 @@ export const Menu = styled.div`
     display: none;
   }
 `;
-export const MenuItem = styled.div`
+export const MenuItem = styled.a`
   color: #fff;
 
   font-size: 20px;
@@ -197,7 +197,9 @@ export const MobileMenu = styled.div<{ show: boolean }>`
     }
   }
 `;
-export const MobileMenuItem = styled.div`
+export const MobileMenuItem = styled.a`
+  display: block;
+  text-decoration: none;
   text-align: center;
   background: #11181e;
   color: white;

@@ -23,9 +23,9 @@ const Roadmap: React.FC = () => {
   return (
     <Layout id="roadmap">
       <Container>
-        <Title>Our Roadmap</Title>
+        <Title data-aos="fade-up">Our Roadmap</Title>
         <RoadmapContainer>
-          <RoadMapItem align={true}>
+          <RoadMapItem align={true} data-aos="fade-right">
             <Percent>25%</Percent>
             <ItemTitle>Project Launch</ItemTitle>
             <ItemDetail>
@@ -35,7 +35,7 @@ const Roadmap: React.FC = () => {
               Release of the 10,000 Dog Drip NFT collection.
             </ItemDetail>
           </RoadMapItem>
-          <RoadMapItem align={false}>
+          <RoadMapItem align={false} data-aos="fade-left">
             <Percent>50%</Percent>
             <ItemTitle>Marketing</ItemTitle>
             <ItemDetail>
@@ -47,7 +47,7 @@ const Roadmap: React.FC = () => {
               wristwatches to 10 lucky holders.
             </ItemDetail>
           </RoadMapItem>
-          <RoadMapItem align={true}>
+          <RoadMapItem align={true} data-aos="fade-right">
             <Percent>75%</Percent>
             <ItemTitle>Merchandise</ItemTitle>
             <ItemDetail>
@@ -56,7 +56,7 @@ const Roadmap: React.FC = () => {
               income for life.
             </ItemDetail>
           </RoadMapItem>
-          <RoadMapItem align={false}>
+          <RoadMapItem align={false} data-aos="fade-left">
             <Percent>100%</Percent>
             <ItemTitle>DogDrip token</ItemTitle>
             <ItemDetail>
@@ -66,37 +66,35 @@ const Roadmap: React.FC = () => {
           </RoadMapItem>
         </RoadmapContainer>
         <TimerContainer>
-          <TimerTitle>We are Launcing in ...</TimerTitle>
+          <TimerTitle data-aos="fade-right">
+            We are Launcing in . . .
+          </TimerTitle>
           <Timer>
-            <TimerItem>
+            <TimerItem data-aos="zoom-in">
               <Text>
                 44
-                <br />
                 <br />
                 Days
               </Text>
             </TimerItem>
-            <TimerItem>
+            <TimerItem data-aos="zoom-in">
               <Text>
                 19
-                <br />
                 <br />
                 Hours
               </Text>
             </TimerItem>
 
-            <TimerItem>
+            <TimerItem data-aos="zoom-in">
               <Text>
                 51 <br />
-                <br />
                 Mins
               </Text>
             </TimerItem>
 
-            <TimerItem>
+            <TimerItem data-aos="zoom-in">
               <Text>
                 29 <br />
-                <br />
                 Sec
               </Text>
             </TimerItem>

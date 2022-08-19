@@ -34,23 +34,28 @@ const ImageList = [DogImage1, DogImage2, DogImage3, DogImage4, DogImage5];
 const Landing: React.FC = () => {
   return (
     <Layout>
-      <Title>DOGDRIP COLLECTION</Title>
-      <Detail>
-        <br />
+      <Title data-aos="fade-up">DOGDRIP COLLECTION</Title>
+      <Detail data-aos="fade-up">
         Dogdrip is more than just art but multiple passive income opportunities
-        created
-        <br />
-        for everyone involved on this journey. Starting from flipping NFTs, to
-        affiliate
-        <br />
-        commissions, to launching the merchandise store, to the dogdrip token,
-        to
-        <br />
-        frequent giveaways and other passive income opportunities.
+        created for everyone involved on this journey. Starting from flipping
+        NFTs, to affiliate commissions, to launching the merchandise store, to
+        the dogdrip token, to frequent giveaways and other passive income
+        opportunities.
       </Detail>
-      <SwiperContainer>
+      <SwiperContainer data-aos="fade-up">
         <Swiper
-          slidesPerView={4}
+          slidesPerView={1}
+          breakpoints={{
+            1250: {
+              slidesPerView: 4,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            570: {
+              slidesPerView: 2,
+            },
+          }}
           navigation={{
             prevEl: ".prev",
             nextEl: ".next",

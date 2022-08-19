@@ -6,7 +6,7 @@ import { Layout } from "./WalletConnect.styled";
 //------------------------------------------------------------------
 
 const Header: React.FC = () => {
-  return <Layout>Connect Wallet</Layout>;
+  return <Layout data-aos="zoom-in">Connect Wallet</Layout>;
 };
 
 export default Header;

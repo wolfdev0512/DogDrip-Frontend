@@ -1,7 +1,7 @@
 export const MenuItemList = [
   {
     label: "WHITEPAPER",
-    link: "/",
+    link: "#",
   },
   {
     label: "ABOUT",
@@ -25,6 +25,6 @@ export const MenuItemList = [
   },
   {
     label: "AFFILIATE",
-    link: "/",
+    link: "#",
   },
 ];

@@ -59,6 +59,7 @@ const Header: React.FC = () => {
     <Layout>
       <Container>
         <Logo
+          data-aos="zoom-in"
           onClick={() => {
             navigate("/");
           }}
@@ -67,12 +68,7 @@ const Header: React.FC = () => {
         </Logo>
         <Menu>
           {MenuItemList.map((item, index) => (
-            <MenuItem
-              key={index}
-              onClick={() => {
-                navigate(item.link);
-              }}
-            >
+            <MenuItem key={index} href={item.link} data-aos="fade-up">
               {item.label}
             </MenuItem>
           ))}
@@ -80,6 +76,7 @@ const Header: React.FC = () => {
         <ButtonGroup>
           <WalletConnect />
           <MobileMenuButton
+            data-aos="zoom-in"
             onClick={() => setShow(show * -1)}
             ref={menuButtonRef}
           >
@@ -88,13 +85,7 @@ const Header: React.FC = () => {
         </ButtonGroup>
         <MobileMenu show={show > 0} ref={dropMenuRef}>
           {MenuItemList.map((item, index) => (
-            <MobileMenuItem
-              key={index}
-              onClick={() => {
-                navigate(item.link);
-                setShow(-1);
-              }}
-            >
+            <MobileMenuItem key={index} href={item.link}>
               {item.label}
             </MobileMenuItem>
           ))}

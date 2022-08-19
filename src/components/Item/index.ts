@@ -1,1 +1,1 @@
-export { default as StoryItem } from "./StoryItem/StoryItem.styled.";
+export { default as StoryItem } from "./StoryItem/StoryItem";

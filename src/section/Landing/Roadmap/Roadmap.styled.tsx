@@ -9,15 +9,35 @@ export const Layout = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 200px;
-  padding-bottom: 200px;
+  padding-bottom: 50px;
 
   box-sizing: border-box;
+
+  @media screen and (max-width: 1024px) {
+    padding-top: 150px;
+  }
 `;
 export const Container = styled.div`
-  width: 1500px;
+  width: 1320px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 1440px) {
+    width: 1150px;
+  }
+  @media screen and (max-width: 1250px) {
+    width: 900px;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 700px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 510px;
+  }
+  @media screen and (max-width: 570px) {
+    width: 90%;
+  }
 `;
 
 export const Title = styled.div`
@@ -26,12 +46,20 @@ export const Title = styled.div`
   color: white;
   text-align: center;
   margin-bottom: 150px;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 55px;
+    margin-bottom: 100px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 45px;
+  }
 `;
 export const RoadmapContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0px 350px;
   position: relative;
+  width: 800px;
   ::before {
     content: "";
     position: absolute;
@@ -46,6 +74,13 @@ export const RoadmapContainer = styled.div`
   & > :not(:last-child) {
     margin-bottom: 50px;
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    ::before {
+      display: none;
+    }
+  }
 `;
 export const RoadMapItem = styled.div<{ align: boolean }>`
   background: #e8eaea;
@@ -58,12 +93,13 @@ export const RoadMapItem = styled.div<{ align: boolean }>`
   ${({ align }) =>
     align
       ? `
-  transform: translateX(-30px);
-  border-radius: 20px 0px 20px 20px;  
+      margin-left: -30px;
+      border-radius: 20px 0px 20px 20px;  
   `
       : ` 
       align-self: flex-end;
-  transform: translateX(30px);
+      margin-right: -30px;
+      
   border-radius: 0px 20px 20px 20px;`};
 
   ::after {
@@ -82,6 +118,20 @@ export const RoadMapItem = styled.div<{ align: boolean }>`
       background: #07fea3;
     }
   }
+
+  @media screen and (max-width: 1024px) {
+    width: 90%;
+    align-self: center;
+    border-radius: 20px;
+    margin: 0px;
+
+    ::after {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 570px) {
+    width: 100%;
+  }
 `;
 export const Percent = styled.div`
   font-size: 18px;
@@ -89,6 +139,9 @@ export const Percent = styled.div`
   color: green;
   text-align: left;
   margin-bottom: 16px;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 8px;
+  }
 `;
 export const ItemTitle = styled.div`
   font-size: 35px;
@@ -96,14 +149,23 @@ export const ItemTitle = styled.div`
   color: #11181e;
   text-align: left;
   margin-bottom: 10px;
+  @media screen and (max-width: 768px) {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
 `;
 export const ItemDetail = styled.div`
   font-size: 18px;
   font-weight: 500;
   color: #11181e;
   text-align: left;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+    line-height: 1.2;
+  }
 `;
 export const TimerContainer = styled.div`
+  width: 100%;
   margin-top: 150px;
 `;
 export const TimerTitle = styled.div`
@@ -111,10 +173,19 @@ export const TimerTitle = styled.div`
   font-weight: 600;
   color: White;
   text-align: left;
+  @media screen and (max-width: 1250px) {
+    font-size: 34px;
+  }
+  @media screen and (max-width: 1024px) {
+    font-size: 25px;
+  }
 `;
 export const Timer = styled.div`
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 570px) {
+    justify-content: space-around;
+  }
 `;
 export const TimerItem = styled.div`
   margin: 50px;
@@ -128,6 +199,24 @@ export const TimerItem = styled.div`
   align-items: center;
   box-shadow: rgb(0 0 0 / 81%) 0px 30px 60px -12px inset,
     rgb(0 0 0 / 87%) 0px 18px 36px -18px inset;
+  @media screen and (max-width: 1250px) {
+    margin: 20px;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 120px;
+    height: 100px;
+    margin-top: 50px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 80px;
+    height: 75px;
+    margin: 10px;
+    margin-top: 50px;
+  }
+  @media screen and (max-width: 570px) {
+    margin: 0;
+    margin-top: 50px;
+  }
 `;
 export const Text = styled.div`
   font-size: 40px;
@@ -135,4 +224,13 @@ export const Text = styled.div`
   line-height: 30px;
   color: #030d12;
   text-align: center;
+  line-height: 1.5;
+  @media screen and (max-width: 1024px) {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+    line-height: 1.3;
+  }
 `;

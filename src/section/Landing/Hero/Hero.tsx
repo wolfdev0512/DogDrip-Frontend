@@ -10,6 +10,7 @@ import {
   GoCommunity,
   ImageContainer,
   Image,
+  MobileNumber,
 } from "./Hero.styled";
 
 // @Assets
@@ -21,7 +22,7 @@ const Hero: React.FC = () => {
   return (
     <Layout id="about">
       <Container>
-        <TitleContainer>
+        <TitleContainer data-aos="fade-right">
           <Number>
             10,000
             <br />
@@ -37,11 +38,14 @@ const Hero: React.FC = () => {
             DogDrip.
           </Detail>
         </TitleContainer>
-        <ImageContainer>
+        <ImageContainer data-aos="fade-left">
           <Image>
             <img src={LandingHeroNFT} alt="No HeroNFT" />
           </Image>
         </ImageContainer>
+        <MobileNumber data-aos="fade-up">
+          10,000 COLLECTION OF DOGDRIP NFT
+        </MobileNumber>
       </Container>
     </Layout>
   );

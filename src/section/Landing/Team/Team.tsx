@@ -20,21 +20,21 @@ const Mint: React.FC = () => {
   return (
     <Layout id="team">
       <Container>
-        <Title>Meet The Team</Title>
+        <Title data-aos="fade-up">Meet The Team</Title>
         <TeamMembers>
-          <TeamItem>
+          <TeamItem data-aos="zoom-in">
             <Image>
               <img src={TeamImage} alt="No TeamImage" />
             </Image>
             <Text>Founder</Text>
           </TeamItem>
-          <TeamItem>
+          <TeamItem data-aos="zoom-in">
             <Image>
               <img src={TeamImage} alt="No TeamImage" />
             </Image>
             <Text>Community Manager</Text>
           </TeamItem>
-          <TeamItem>
+          <TeamItem data-aos="zoom-in">
             <Image>
               <img src={TeamImage} alt="No TeamImage" />
             </Image>
