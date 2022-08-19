@@ -28,12 +28,12 @@ const Story: React.FC = () => {
   return (
     <Layout>
       <StoryContainer>
-        <ImageContainer>
+        <ImageContainer data-aos="fade-right">
           <Image>
             <img src={LandingStoryNFT} alt="No StoryNFT" />
           </Image>
         </ImageContainer>
-        <TitleContainer>
+        <TitleContainer data-aos="fade-left">
           <Title>Our Story</Title>
           <Detail>
             A collection of 10,000 cute dogs living in the web3, paving multiple

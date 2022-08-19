@@ -10,7 +10,7 @@ import { StoryItemProps } from "types/Story";
 
 const Header: React.FC<StoryItemProps> = ({ img, detail, title }) => {
   return (
-    <Layout>
+    <Layout data-aos="zoom-in">
       <Row>
         <Image>
           <img src={img} alt="No StoryItemImage" />
