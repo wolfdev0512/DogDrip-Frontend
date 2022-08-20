@@ -85,9 +85,11 @@ const Header: React.FC = () => {
         </ButtonGroup>
         <MobileMenu show={show > 0} ref={dropMenuRef}>
           {MenuItemList.map((item, index) => (
-            <MobileMenuItem key={index} href={item.link}>
-              {item.label}
-            </MobileMenuItem>
+            <div>
+              <MobileMenuItem key={index} href={item.link}>
+                {item.label}
+              </MobileMenuItem>
+            </div>
           ))}
         </MobileMenu>
       </Container>
