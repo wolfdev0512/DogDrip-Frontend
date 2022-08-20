@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // @styled-components
 import { Layout, Container, Title } from "./FAQ.styled";

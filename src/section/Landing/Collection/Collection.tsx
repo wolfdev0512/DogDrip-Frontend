@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // @styled-components
 import {
@@ -63,7 +63,7 @@ const Landing: React.FC = () => {
           modules={[Navigation]}
         >
           {ImageList.map((dogImage, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <DogImage>
                 <img src={dogImage} alt="No DogImage" />
               </DogImage>

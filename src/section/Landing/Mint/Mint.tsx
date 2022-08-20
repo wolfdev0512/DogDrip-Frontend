@@ -25,6 +25,8 @@ import LandingMintImage2 from "assets/Landing-Mint-Image2.png";
 //------------------------------------------------------
 
 const Mint: React.FC = () => {
+  const [number, setNumber] = useState(1);
+
   return (
     <Layout id="mint">
       <Container>
@@ -40,9 +42,25 @@ const Mint: React.FC = () => {
           <Text data-aos="fade-up">0.09 ETH + Gas fee</Text>
           <Text data-aos="fade-up">5 Dog Drip mint per wallet</Text>
           <MintNumberContainer data-aos="fade-up">
-            <NumberDecrease>-</NumberDecrease>
-            <MintNumber>1</MintNumber>
-            <NumberIncrease>+</NumberIncrease>
+            <NumberDecrease
+              onClick={() => {
+                if (number !== 1) {
+                  setNumber(number - 1);
+                }
+              }}
+            >
+              -
+            </NumberDecrease>
+            <MintNumber>{number}</MintNumber>
+            <NumberIncrease
+              onClick={() => {
+                if (number !== 5) {
+                  setNumber(number + 1);
+                }
+              }}
+            >
+              +
+            </NumberIncrease>
           </MintNumberContainer>
           <MintButton data-aos="fade-up">Mint</MintButton>
           <Text data-aos="fade-up">

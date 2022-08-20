@@ -8,6 +8,10 @@ import "aos/dist/aos.css";
 // @components
 import Loading from "components/Loading/Loading";
 
+//web3 context provider
+import { Web3ReactProvider } from "@web3-react/core";
+import getLibrary from "connectors/getLibrary";
+
 // @page
 const Landing = React.lazy(() => import("./pages/Landing/Landing"));
 
@@ -21,9 +25,11 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <Suspense fallback={<Loading />}>
-      <RouterManage />
-    </Suspense>
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <Suspense fallback={<Loading />}>
+        <RouterManage />
+      </Suspense>
+    </Web3ReactProvider>
   );
 };
 

@@ -107,6 +107,7 @@ export const SwiperPrev = styled.div`
   @media screen and (max-width: 570px) {
     left: -10px;
   }
+  cursor: pointer;
 `;
 export const SwiperNext = styled.div`
   position: absolute;
@@ -115,4 +116,5 @@ export const SwiperNext = styled.div`
   @media screen and (max-width: 570px) {
     right: -10px;
   }
+  cursor: pointer;
 `;

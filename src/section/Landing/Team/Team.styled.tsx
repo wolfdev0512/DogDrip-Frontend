@@ -58,10 +58,7 @@ export const TeamItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.5s ease;
-  :hover {
-    transform: scale(1.1);
-  }
+
   @media screen and (max-width: 1440px) {
     width: 350px;
     height: 350px;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // @styled-components
 import {
@@ -20,6 +20,18 @@ import {
 //------------------------------------------------------
 
 const Roadmap: React.FC = () => {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    let launchTime = new Date("Oct 2, 2022 00:00:00").getTime();
+    let now = new Date().getTime();
+
+    setTime(launchTime - now);
+    setTimeout(() => {
+      setTime(launchTime - now);
+    }, 1000);
+  }, [time]);
+
   return (
     <Layout id="roadmap">
       <Container>
@@ -72,14 +84,14 @@ const Roadmap: React.FC = () => {
           <Timer>
             <TimerItem data-aos="zoom-in">
               <Text>
-                44
+                {Math.floor(time / (1000 * 60 * 60 * 24))}
                 <br />
                 Days
               </Text>
             </TimerItem>
             <TimerItem data-aos="zoom-in">
               <Text>
-                19
+                {Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))}
                 <br />
                 Hours
               </Text>
@@ -87,14 +99,14 @@ const Roadmap: React.FC = () => {
 
             <TimerItem data-aos="zoom-in">
               <Text>
-                51 <br />
+                {Math.floor((time % (1000 * 60 * 60)) / (1000 * 60))} <br />
                 Mins
               </Text>
             </TimerItem>
 
             <TimerItem data-aos="zoom-in">
               <Text>
-                29 <br />
+                {Math.floor((time % (1000 * 60)) / 1000)} <br />
                 Sec
               </Text>
             </TimerItem>
