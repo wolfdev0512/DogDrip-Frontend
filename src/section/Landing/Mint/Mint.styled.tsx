@@ -174,7 +174,7 @@ export const NumberIncrease = styled.div`
   border-left: 2px solid #6c757d44;
   cursor: pointer;
 `;
-export const MintButton = styled.div`
+export const MintButton = styled.button`
   margin-top: 30px;
   margin-bottom: 20px;
   padding: 8px 70px;

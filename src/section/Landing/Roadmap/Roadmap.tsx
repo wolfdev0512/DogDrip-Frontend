@@ -25,8 +25,12 @@ const Roadmap: React.FC = () => {
   useEffect(() => {
     let launchTime = new Date("Oct 2, 2022 00:00:00").getTime();
     let now = new Date().getTime();
-
     setTime(launchTime - now);
+  }, []);
+
+  useEffect(() => {
+    let launchTime = new Date("Oct 2, 2022 00:00:00").getTime();
+    let now = new Date().getTime();
     setTimeout(() => {
       setTime(launchTime - now);
     }, 1000);

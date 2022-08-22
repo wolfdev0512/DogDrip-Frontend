@@ -12,6 +12,10 @@ import Loading from "components/Loading/Loading";
 import { Web3ReactProvider } from "@web3-react/core";
 import getLibrary from "connectors/getLibrary";
 
+// @toast
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // @page
 const Landing = React.lazy(() => import("./pages/Landing/Landing"));
 
@@ -28,6 +32,7 @@ const App: React.FC = () => {
     <Web3ReactProvider getLibrary={getLibrary}>
       <Suspense fallback={<Loading />}>
         <RouterManage />
+        <ToastContainer />
       </Suspense>
     </Web3ReactProvider>
   );
