@@ -16,6 +16,7 @@ const Header: React.FC = () => {
     if (window.ethereum) {
       activate(injected);
     } else {
+      console.log("object");
       activate(WalletConnect);
     }
   };

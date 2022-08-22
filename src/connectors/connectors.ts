@@ -8,8 +8,20 @@ export const injected = new InjectedConnector({
   ],
 });
 
+// export const WalletConnect = new WalletConnectConnector({
+//   bridge: "https://bridge.walletconnect.org",
+//   qrcode: true,
+//   rpc: { 80001: "https://rpc-mumbai.maticvigil.com" },
+// });
+
 export const WalletConnect = new WalletConnectConnector({
-  bridge: "https://bridge.walletconnect.org",
+  rpc: {
+    1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
+    4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
+    80001:
+      "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
+    137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
+  },
   qrcode: true,
-  rpc: { 80001: "https://rpc-mumbai.maticvigil.com" },
+  bridge: "https://bridge.walletconnect.org",
 });
