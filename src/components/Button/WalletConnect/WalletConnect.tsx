@@ -5,7 +5,7 @@ import { Layout } from "./WalletConnect.styled";
 
 // @web3-react
 import { useWeb3React } from "@web3-react/core";
-import { injected } from "connectors/connectors";
+import { injected, WalletConnect } from "connectors/connectors";
 
 //------------------------------------------------------------------
 
@@ -15,6 +15,8 @@ const Header: React.FC = () => {
   const connectInjected = () => {
     if (window.ethereum) {
       activate(injected);
+    } else {
+      activate(WalletConnect);
     }
   };
 
