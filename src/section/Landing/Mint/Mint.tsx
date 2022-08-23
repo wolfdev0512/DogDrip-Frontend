@@ -33,6 +33,9 @@ import { contract_address } from "contract/contract_address";
 // @toast
 import { toast } from "react-toastify";
 
+// @alchemy
+const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
+
 //------------------------------------------------------
 
 const Mint: React.FC = () => {
@@ -46,46 +49,35 @@ const Mint: React.FC = () => {
   let timer: any = null;
 
   useEffect(() => {
-    getInfo();
+    (async () => {
+      const web3 = createAlchemyWeb3(
+        "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa"
+      );
+      const contract = new web3.eth.Contract(contract_abi, contract_address);
+      timer = setInterval(async () => {
+        await contract.methods
+          .totalSupply()
+          .call()
+          .then((result: number) => {
+            setSupply(parseInt(result.toString()));
+          });
+        if (account) {
+          await contract.methods
+            ._owners(account)
+            .call()
+            .then((result: number) => {
+              setMintable(5 - parseInt(result.toString()));
+              if (number > 5 - parseInt(result.toString())) {
+                setNumber(5 - parseInt(result.toString()));
+              }
+            });
+        }
+      }, 1000);
+    })();
     return () => {
       clearInterval(timer);
     };
   }, [account]);
-
-  const getInfo = async () => {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-      const signer = provider.getSigner();
-
-      const contract = await new ethers.Contract(
-        contract_address,
-        contract_abi,
-        signer
-      );
-
-      timer = setInterval(async () => {
-        await contract.totalSupply().then((result: number) => {
-          setSupply(parseInt(result.toString()));
-        });
-        if (account) {
-          await contract._owners(account).then((result: number) => {
-            setMintable(5 - parseInt(result.toString()));
-
-            if (number > 5 - parseInt(result.toString())) {
-              setNumber(5 - parseInt(result.toString()));
-            }
-          });
-        }
-      }, 1000);
-    } else {
-      toast.error("Please install Metamask", {
-        position: "top-right",
-        theme: "dark",
-        hideProgressBar: true,
-      });
-    }
-  };
 
   const mintNFT = async () => {
     if (number !== 0) {
@@ -134,6 +126,9 @@ const Mint: React.FC = () => {
           </Total>
           <Text data-aos="fade-up">0.09 ETH + Gas fee</Text>
           <Text data-aos="fade-up">5 Dog Drip mint per wallet</Text>
+          {account && (
+            <Text data-aos="fade-up">You already mint {5 - mintable} NFT</Text>
+          )}
           <MintNumberContainer data-aos="fade-up">
             <NumberDecrease
               onClick={() => {
