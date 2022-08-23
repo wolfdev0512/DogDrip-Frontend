@@ -22,6 +22,10 @@ import {
 import LandingMintImage1 from "assets/Landing-Mint-Image1.png";
 import LandingMintImage2 from "assets/Landing-Mint-Image2.png";
 
+// @walletconnect
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3Modal from "web3modal";
+
 // @web3-react
 import { useWeb3React } from "@web3-react/core";
 import { ethers } from "ethers";
@@ -81,28 +85,78 @@ const Mint: React.FC = () => {
 
   const mintNFT = async () => {
     if (number !== 0) {
-      setLoading(true);
-      const contract = await new ethers.Contract(
-        contract_address,
-        contract_abi,
-        library?.getSigner()
-      );
+      if (window.ethereum) {
+        setLoading(true);
+        const contract = await new ethers.Contract(
+          contract_address,
+          contract_abi,
+          library?.getSigner()
+        );
 
-      await contract
-        .mint(number, {
-          value: ethers.utils.parseEther((0.01 * number).toString()),
-        })
-        .then(() => {
-          toast.success("success", {
-            position: "top-right",
-            theme: "dark",
-            hideProgressBar: true,
+        await contract
+          .mint(number, {
+            value: ethers.utils.parseEther((0.01 * number).toString()),
+          })
+          .then(() => {
+            toast.success("success", {
+              position: "top-right",
+              theme: "dark",
+              hideProgressBar: true,
+            });
+            setLoading(false);
+          })
+          .catch((error: any) => {
+            setLoading(false);
           });
-          setLoading(false);
-        })
-        .catch((error: any) => {
-          setLoading(false);
+      } else {
+        setLoading(true);
+
+        const providerOptions = {
+          walletconnect: {
+            package: WalletConnectProvider, // required
+            options: {
+              rpc: {
+                1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
+                4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
+                80001:
+                  "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
+                137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
+              },
+              bridge: "https://bridge.walletconnect.org",
+            },
+          },
+        };
+        let web3Modal: any = new Web3Modal({
+          network: "Mumbai",
+          cacheProvider: true,
+          providerOptions,
         });
+
+        const provider = await web3Modal.connect();
+        const signer = provider.getSigner();
+
+        const contract = await new ethers.Contract(
+          contract_address,
+          contract_abi,
+          signer
+        );
+
+        await contract
+          .mint(number, {
+            value: ethers.utils.parseEther((0.01 * number).toString()),
+          })
+          .then(() => {
+            toast.success("success", {
+              position: "top-right",
+              theme: "dark",
+              hideProgressBar: true,
+            });
+            setLoading(false);
+          })
+          .catch((error: any) => {
+            setLoading(false);
+          });
+      }
     } else {
       toast.error("You can't mint", {
         position: "top-right",

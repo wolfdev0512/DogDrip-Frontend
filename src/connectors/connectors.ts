@@ -8,12 +8,6 @@ export const injected = new InjectedConnector({
   ],
 });
 
-// export const WalletConnect = new WalletConnectConnector({
-//   bridge: "https://bridge.walletconnect.org",
-//   qrcode: true,
-//   rpc: { 80001: "https://rpc-mumbai.maticvigil.com" },
-// });
-
 export const WalletConnect = new WalletConnectConnector({
   rpc: {
     1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
