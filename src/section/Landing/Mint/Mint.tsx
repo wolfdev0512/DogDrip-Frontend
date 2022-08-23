@@ -110,7 +110,7 @@ const Mint: React.FC = () => {
           });
       } else {
         setLoading(true);
-
+        alert("start");
         const providerOptions = {
           walletconnect: {
             package: WalletConnectProvider, // required
@@ -124,15 +124,25 @@ const Mint: React.FC = () => {
           cacheProvider: true,
           providerOptions,
         });
+        alert("web3Modal");
+        alert(web3Modal);
 
         const provider = await web3Modal.connect();
+
+        alert("provider");
+        alert(provider);
         const signer = provider.getSigner();
+
+        alert("signer");
+        alert(signer);
 
         const contract = await new ethers.Contract(
           contract_address,
           contract_abi,
           signer
         );
+        alert("contract");
+        alert(contract);
 
         await contract
           .mint(number, {
