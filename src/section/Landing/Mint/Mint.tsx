@@ -28,7 +28,7 @@ import Web3Modal from "web3modal";
 
 // @web3-react
 import { useWeb3React } from "@web3-react/core";
-import { ethers } from "ethers";
+import { ethers, providers } from "ethers";
 
 // @contract
 import contract_abi from "contract/abi.json";
@@ -111,33 +111,25 @@ const Mint: React.FC = () => {
       } else {
         setLoading(true);
         alert("start");
-        const providerOptions = {
-          walletconnect: {
-            package: WalletConnectProvider, // required
-            options: {
-              rpc: {
-                1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
-                4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
-                80001:
-                  "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
-                137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
-              },
-            },
+        const provider = new WalletConnectProvider({
+          rpc: {
+            1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
+            4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
+            80001:
+              "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
+            137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
           },
-        };
-        let web3Modal: any = new Web3Modal({
-          network: "Mumbai",
-          cacheProvider: true,
-          providerOptions,
         });
-        alert("web3Modal");
-        alert(web3Modal);
+        await provider.enable();
 
-        const provider = await web3Modal.connect();
+        const web3Provider = new providers.Web3Provider(provider);
 
         alert("provider");
         alert(provider);
-        const signer = provider.getSigner();
+        alert("web3Provider");
+        alert(web3Provider);
+
+        const signer = web3Provider.getSigner();
 
         alert("signer");
         alert(signer);
