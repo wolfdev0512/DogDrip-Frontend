@@ -142,7 +142,7 @@ const Mint: React.FC = () => {
         const web3 = new Web3(provider as WalletConnectWeb3Provider);
         //  Get Accounts
         const accounts = await web3.eth.getAccounts();
-
+        alert(accounts);
         const contract = new web3.eth.Contract(
           contract_abi as AbiItem[],
           contract_address
