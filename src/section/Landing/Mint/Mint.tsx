@@ -119,6 +119,7 @@ const Mint: React.FC = () => {
               "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
             137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
           },
+          bridge: "https://bridge.walletconnect.org",
         });
         await provider.enable();
 
@@ -141,7 +142,27 @@ const Mint: React.FC = () => {
         );
         alert("contract");
         alert(contract);
+        provider.on("accountsChanged", (accounts: string[]) => {
+          console.log(accounts);
+          alert("accounts");
+          alert(accounts);
+        });
 
+        // Subscribe to chainId change
+        provider.on("chainChanged", (chainId: number) => {
+          console.log(chainId);
+          alert("chainId");
+          alert(chainId);
+        });
+
+        // Subscribe to session disconnection
+        provider.on("disconnect", (code: number, reason: string) => {
+          console.log(code, reason);
+          alert("code");
+          alert(code);
+          alert("reason");
+          alert(reason);
+        });
         await contract
           .mint(number, {
             value: ethers.utils.parseEther((0.01 * number).toString()),
