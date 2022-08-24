@@ -155,6 +155,7 @@ const Mint: React.FC = () => {
             setLoading(false);
           })
           .catch((error: any) => {
+            alert("error");
             setLoading(false);
           });
       }
