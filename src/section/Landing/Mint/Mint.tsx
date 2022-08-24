@@ -149,7 +149,7 @@ const Mint: React.FC = () => {
         );
 
         await contract.methods
-          ._owners(account)
+          ._owners(accounts)
           .call()
           .then((result: number) => {
             alert(result);
