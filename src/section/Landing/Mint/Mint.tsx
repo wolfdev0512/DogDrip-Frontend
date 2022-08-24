@@ -38,8 +38,10 @@ import { contract_address } from "contract/contract_address";
 // @toast
 import { toast } from "react-toastify";
 
+// @web3
 import { JsonRpcPayload, JsonRpcResponse } from "web3-core-helpers";
 import { AbstractProvider } from "web3-core/types";
+import { AbiItem } from "web3-utils";
 
 export declare class WalletConnectWeb3Provider
   extends WalletConnectProvider
@@ -140,14 +142,18 @@ const Mint: React.FC = () => {
         const web3 = new Web3(provider as WalletConnectWeb3Provider);
         //  Get Accounts
         const accounts = await web3.eth.getAccounts();
-        alert(accounts);
 
-        //  Get Chain Id
-        const chainId = await web3.eth.getChainId();
-        alert(chainId);
-        //  Get Network Id
-        const networkId = await web3.eth.net.getId();
-        alert(networkId);
+        const contract = new web3.eth.Contract(
+          contract_abi as AbiItem[],
+          contract_address
+        );
+
+        await contract.methods
+          ._owners(account)
+          .call()
+          .then((result: number) => {
+            alert(result);
+          });
         // const web3Provider = new providers.Web3Provider(provider);
 
         // alert("provider");
