@@ -29,6 +29,7 @@ import Web3Modal from "web3modal";
 // @web3-react
 import { useWeb3React } from "@web3-react/core";
 import { ethers, providers } from "ethers";
+import Web3 from "web3";
 
 // @contract
 import contract_abi from "contract/abi.json";
@@ -36,6 +37,19 @@ import { contract_address } from "contract/contract_address";
 
 // @toast
 import { toast } from "react-toastify";
+
+import { JsonRpcPayload, JsonRpcResponse } from "web3-core-helpers";
+import { AbstractProvider } from "web3-core/types";
+
+export declare class WalletConnectWeb3Provider
+  extends WalletConnectProvider
+  implements AbstractProvider
+{
+  sendAsync(
+    payload: JsonRpcPayload,
+    callback: (error: Error | null, result?: JsonRpcResponse) => void
+  ): void;
+}
 
 // @alchemy
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
@@ -123,62 +137,73 @@ const Mint: React.FC = () => {
         });
         await provider.enable();
 
-        const web3Provider = new providers.Web3Provider(provider);
+        const web3 = new Web3(provider as WalletConnectWeb3Provider);
+        //  Get Accounts
+        const accounts = await web3.eth.getAccounts();
+        alert(accounts);
 
-        alert("provider");
-        alert(provider);
-        alert("web3Provider");
-        alert(web3Provider);
+        //  Get Chain Id
+        const chainId = await web3.eth.getChainId();
+        alert(chainId);
+        //  Get Network Id
+        const networkId = await web3.eth.net.getId();
+        alert(networkId);
+        // const web3Provider = new providers.Web3Provider(provider);
 
-        const signer = web3Provider.getSigner();
+        // alert("provider");
+        // alert(provider);
+        // alert("web3Provider");
+        // alert(web3Provider);
 
-        alert("signer");
-        alert(signer);
+        // const signer = web3Provider.getSigner();
 
-        const contract = await new ethers.Contract(
-          contract_address,
-          contract_abi,
-          signer
-        );
-        alert("contract");
-        alert(contract);
-        provider.on("accountsChanged", (accounts: string[]) => {
-          console.log(accounts);
-          alert("accounts");
-          alert(accounts);
-        });
+        // alert("signer");
+        // alert(signer);
 
-        // Subscribe to chainId change
-        provider.on("chainChanged", (chainId: number) => {
-          console.log(chainId);
-          alert("chainId");
-          alert(chainId);
-        });
+        // const contract = await new ethers.Contract(
+        //   contract_address,
+        //   contract_abi,
+        //   signer
+        // );
+        // alert("contract");
+        // alert(contract);
+        // provider.on("accountsChanged", (accounts: string[]) => {
+        //   console.log(accounts);
+        //   alert("accounts");
+        //   alert(accounts);
+        // });
 
-        // Subscribe to session disconnection
-        provider.on("disconnect", (code: number, reason: string) => {
-          console.log(code, reason);
-          alert("code");
-          alert(code);
-          alert("reason");
-          alert(reason);
-        });
-        await contract
-          .mint(number, {
-            value: ethers.utils.parseEther((0.01 * number).toString()),
-          })
-          .then(() => {
-            toast.success("success", {
-              position: "top-right",
-              theme: "dark",
-              hideProgressBar: true,
-            });
-            setLoading(false);
-          })
-          .catch((error: any) => {
-            alert("error");
-            setLoading(false);
-          });
+        // // Subscribe to chainId change
+        // provider.on("chainChanged", (chainId: number) => {
+        //   console.log(chainId);
+        //   alert("chainId");
+        //   alert(chainId);
+        // });
+
+        // // Subscribe to session disconnection
+        // provider.on("disconnect", (code: number, reason: string) => {
+        //   console.log(code, reason);
+        //   alert("code");
+        //   alert(code);
+        //   alert("reason");
+        //   alert(reason);
+        // });
+        // await contract
+        //   .mint(number, {
+        //     value: ethers.utils.parseEther((0.01 * number).toString()),
+        //   })
+        //   .then(() => {
+        //     toast.success("success", {
+        //       position: "top-right",
+        //       theme: "dark",
+        //       hideProgressBar: true,
+        //     });
+        //     setLoading(false);
+        //   })
+        //   .catch((error: any) => {
+        //     alert("error");
+        //     setLoading(false);
+        //   });
       }
     } else {
       toast.error("You can't mint", {
