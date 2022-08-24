@@ -147,13 +147,15 @@ const Mint: React.FC = () => {
           contract_abi as AbiItem[],
           contract_address
         );
-
+        alert("1");
         await contract.methods
           ._owners(accounts)
           .call()
-          .then((result: number) => {
+          .then((result: number, err: any) => {
             alert(result);
+            alert(err);
           });
+        alert("2");
         // const web3Provider = new providers.Web3Provider(provider);
 
         // alert("provider");
