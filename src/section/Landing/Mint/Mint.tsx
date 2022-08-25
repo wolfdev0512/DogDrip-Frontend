@@ -127,38 +127,41 @@ const Mint: React.FC = () => {
       } else {
         setLoading(true);
         alert("start");
-        const provider = new WalletConnectProvider({
-          rpc: {
-            1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
-            4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
-            80001:
-              "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
-            137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
-          },
-          bridge: "https://bridge.walletconnect.org",
-        });
-        await provider.enable();
+        // const provider = new WalletConnectProvider({
+        //   rpc: {
+        //     1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
+        //     4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
+        //     80001:
+        //       "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
+        //     137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
+        //   },
+        //   bridge: "https://bridge.walletconnect.org",
+        // });
+        // await provider.enable();
 
-        const web3 = new Web3(provider as WalletConnectWeb3Provider);
-        //  Get Accounts
-        const accounts = await web3.eth.getAccounts();
-        alert(accounts);
-        const contract = new web3.eth.Contract(
-          contract_abi as AbiItem[],
-          contract_address
-        );
-        alert("1");
-        const num = await contract.methods
-          .totalSupply()
-          .call()
-          .then((result: number) => {
-            alert(result);
-          })
-          .catch((err: any) => {
-            alert(err);
-          });
-        alert(num);
-        alert("2");
+        // const web3 = new Web3(provider as WalletConnectWeb3Provider);
+        // //  Get Accounts
+
+        // alert(provider);
+
+        // const accounts = await web3.eth.getAccounts();
+        // alert(accounts);
+        // const contract = new web3.eth.Contract(
+        //   contract_abi as AbiItem[],
+        //   contract_address
+        // );
+        // alert("1");
+        // const num = await contract.methods
+        //   .totalSupply()
+        //   .call()
+        //   .then((result: number) => {
+        //     alert(result);
+        //   })
+        //   .catch((err: any) => {
+        //     alert(err);
+        //   });
+        // alert(num);
+        // alert("2");
 
         // const web3Provider = new providers.Web3Provider(provider);
 
@@ -216,6 +219,49 @@ const Mint: React.FC = () => {
         //     alert("error");
         //     setLoading(false);
         //   });
+
+        try {
+          const providerOptions = {
+            walletconnect: {
+              package: WalletConnectProvider, // required
+              options: {
+                rpc: {
+                  1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
+                  4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
+                  80001:
+                    "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
+                  137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
+                },
+                bridge: "https://bridge.walletconnect.org",
+              },
+            },
+          };
+          const web3Modal = new Web3Modal({
+            network: "mainnet", // optional
+            cacheProvider: true, // optional
+            providerOptions, // required
+          });
+
+          const provider = await web3Modal.connect();
+          alert(provider);
+          const approveWeb3 = new Web3(provider);
+          alert(approveWeb3);
+          const contract = new approveWeb3.eth.Contract(
+            contract_abi as AbiItem[],
+            contract_address
+          );
+          await contract.methods
+            .totalSupply()
+            .call()
+            .then((result: number) => {
+              alert(result);
+            })
+            .catch((err: any) => {
+              alert(err);
+            });
+        } catch (e) {
+          alert(e);
+        }
       }
     } else {
       toast.error("You can't mint", {
