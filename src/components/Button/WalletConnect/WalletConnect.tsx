@@ -16,8 +16,11 @@ const Header: React.FC = () => {
     if (window.ethereum) {
       activate(injected);
     } else {
-      console.log("object");
-      activate(WalletConnect);
+      const dappUrl = window.location.href.split("//")[1].split("/")[0];
+      const metamaskAppDeepLink = "https://metamask.app.link/dapp/" + dappUrl;
+      window.open(metamaskAppDeepLink, "_self");
+      // console.log("object");
+      // activate(WalletConnect);
     }
   };
 

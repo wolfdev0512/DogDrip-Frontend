@@ -225,14 +225,7 @@ const Mint: React.FC = () => {
             walletconnect: {
               package: WalletConnectProvider, // required
               options: {
-                rpc: {
-                  1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
-                  4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
-                  80001:
-                    "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
-                  137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
-                },
-                bridge: "https://bridge.walletconnect.org",
+                infuraId: "35b7dab555974b4ba417a516a7a11d27", // required
               },
             },
           };
