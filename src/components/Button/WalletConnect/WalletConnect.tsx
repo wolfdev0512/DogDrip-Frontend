@@ -16,6 +16,7 @@ const Header: React.FC = () => {
     if (window.ethereum) {
       console.log("object");
       activate(injected);
+      alert("oberje4");
     } else {
       const dappUrl = window.location.href.split("//")[1].split("/")[0];
       const metamaskAppDeepLink = "https://metamask.app.link/dapp/" + dappUrl;
