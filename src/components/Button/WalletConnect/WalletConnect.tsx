@@ -14,6 +14,7 @@ const Header: React.FC = () => {
 
   const connectInjected = () => {
     if (window.ethereum) {
+      console.log("object");
       activate(injected);
     } else {
       const dappUrl = window.location.href.split("//")[1].split("/")[0];
