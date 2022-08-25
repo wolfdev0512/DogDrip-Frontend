@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 //----------------------------------------------------
@@ -57,6 +58,43 @@ export const Menu = styled.div`
     display: none;
   }
 `;
+
+export const MenuItemA = styled(Link)`
+  color: #fff;
+
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px 10px;
+
+  position: relative;
+  margin: 0 12px;
+
+  text-align: center;
+  text-decoration: none;
+
+  transition: all 0.2s;
+  cursor: pointer;
+
+  ::after {
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    content: "";
+    height: 3px;
+    background-color: #fff;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+  }
+
+  :hover {
+    color: #fff;
+    ::after {
+      transform: scaleX(1);
+    }
+  }
+`;
+
 export const MenuItem = styled.a`
   color: #fff;
 
