@@ -151,8 +151,10 @@ const Mint: React.FC = () => {
         await contract.methods
           ._owners(accounts)
           .call()
-          .then((result: number, err: any) => {
+          .then((result: number) => {
             alert(result);
+          })
+          .catch((err: any) => {
             alert(err);
           });
         alert("2");
