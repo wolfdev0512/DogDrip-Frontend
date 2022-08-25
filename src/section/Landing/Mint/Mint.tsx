@@ -148,7 +148,7 @@ const Mint: React.FC = () => {
           contract_address
         );
         alert("1");
-        await contract.methods
+        const num = await contract.methods
           .totalSupply()
           .call()
           .then((result: number) => {
@@ -157,7 +157,9 @@ const Mint: React.FC = () => {
           .catch((err: any) => {
             alert(err);
           });
+        alert(num);
         alert("2");
+
         // const web3Provider = new providers.Web3Provider(provider);
 
         // alert("provider");
