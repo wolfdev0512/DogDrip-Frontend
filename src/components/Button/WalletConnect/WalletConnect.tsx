@@ -5,7 +5,7 @@ import { Layout } from "./WalletConnect.styled";
 
 // @web3-react
 import { useWeb3React } from "@web3-react/core";
-import { injected, WalletConnect } from "connectors/connectors";
+import { injected } from "connectors/connectors";
 
 //------------------------------------------------------------------
 
@@ -14,15 +14,11 @@ const Header: React.FC = () => {
 
   const connectInjected = () => {
     if (window.ethereum) {
-      console.log("object");
       activate(injected);
-      alert("oberje4");
     } else {
       const dappUrl = window.location.href.split("//")[1].split("/")[0];
       const metamaskAppDeepLink = "https://metamask.app.link/dapp/" + dappUrl;
       window.open(metamaskAppDeepLink, "_self");
-      // console.log("object");
-      // activate(WalletConnect);
     }
   };
 

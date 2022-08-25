@@ -235,6 +235,20 @@ export const MobileMenu = styled.div<{ show: boolean }>`
     }
   }
 `;
+
+export const MobileMenuItemA = styled(Link)`
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  background: #11181e;
+  color: white;
+  font-size: 17px;
+  padding: 5px 0px;
+  :hover {
+    color: #07fea3;
+  }
+`;
+
 export const MobileMenuItem = styled.a`
   display: block;
   text-decoration: none;

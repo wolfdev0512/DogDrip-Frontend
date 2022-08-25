@@ -8,7 +8,7 @@ import "aos/dist/aos.css";
 // @components
 import Loading from "components/Loading/Loading";
 
-//web3 context provider
+// @web3 context provider
 import { Web3ReactProvider } from "@web3-react/core";
 import getLibrary from "connectors/getLibrary";
 
@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 // @page
 const Landing = React.lazy(() => import("./pages/Landing/Landing"));
+const Affiliate = React.lazy(() => import("./pages/Affiliate/Affiliate"));
 
 //------------------------------------------------------------------
 
@@ -43,6 +44,7 @@ const RouterManage: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/affiliate" element={<Affiliate />} />
       </Routes>
     </Router>
   );

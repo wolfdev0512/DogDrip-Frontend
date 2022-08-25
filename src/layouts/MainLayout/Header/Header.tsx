@@ -8,10 +8,12 @@ import {
   Logo,
   Menu,
   MenuItem,
+  MenuItemA,
   MobileMenuButton,
   ButtonGroup,
   MobileMenu,
   MobileMenuItem,
+  MobileMenuItemA,
 } from "./Header.styled";
 
 // @components
@@ -67,11 +69,21 @@ const Header: React.FC = () => {
           DogDrip
         </Logo>
         <Menu>
-          {MenuItemList.map((item, index) => (
-            <MenuItem key={index} href={item.link} data-aos="fade-up">
-              {item.label}
-            </MenuItem>
-          ))}
+          {MenuItemList.map((item, index) => {
+            if (item.flag) {
+              return (
+                <MenuItemA key={index} to={item.link} data-aos="fade-up">
+                  {item.label}
+                </MenuItemA>
+              );
+            } else {
+              return (
+                <MenuItem key={index} href={item.link} data-aos="fade-up">
+                  {item.label}
+                </MenuItem>
+              );
+            }
+          })}
         </Menu>
         <ButtonGroup>
           <WalletConnect />
@@ -84,11 +96,21 @@ const Header: React.FC = () => {
           </MobileMenuButton>
         </ButtonGroup>
         <MobileMenu show={show > 0} ref={dropMenuRef}>
-          {MenuItemList.map((item, index) => (
-            <div key={index}>
-              <MobileMenuItem href={item.link}>{item.label}</MobileMenuItem>
-            </div>
-          ))}
+          {MenuItemList.map((item, index) => {
+            if (item.flag) {
+              return (
+                <div key={index}>
+                  <MobileMenuItemA to={item.link}>{item.label}</MobileMenuItemA>
+                </div>
+              );
+            } else {
+              return (
+                <div key={index}>
+                  <MobileMenuItem href={item.link}>{item.label}</MobileMenuItem>
+                </div>
+              );
+            }
+          })}
         </MobileMenu>
       </Container>
     </Layout>

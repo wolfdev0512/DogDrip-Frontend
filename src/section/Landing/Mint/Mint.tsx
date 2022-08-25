@@ -24,12 +24,10 @@ import LandingMintImage2 from "assets/Landing-Mint-Image2.png";
 
 // @walletconnect
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import Web3Modal from "web3modal";
 
 // @web3-react
 import { useWeb3React } from "@web3-react/core";
-import { ethers, providers } from "ethers";
-import Web3 from "web3";
+import { ethers } from "ethers";
 
 // @contract
 import contract_abi from "contract/abi.json";
@@ -41,7 +39,6 @@ import { toast } from "react-toastify";
 // @web3
 import { JsonRpcPayload, JsonRpcResponse } from "web3-core-helpers";
 import { AbstractProvider } from "web3-core/types";
-import { AbiItem } from "web3-utils";
 
 export declare class WalletConnectWeb3Provider
   extends WalletConnectProvider
@@ -74,6 +71,7 @@ const Mint: React.FC = () => {
         "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa"
       );
       const contract = new web3.eth.Contract(contract_abi, contract_address);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       timer = setInterval(async () => {
         await contract.methods
           .totalSupply()
@@ -124,137 +122,6 @@ const Mint: React.FC = () => {
           .catch((error: any) => {
             setLoading(false);
           });
-      } else {
-        setLoading(true);
-        alert("start");
-        // const provider = new WalletConnectProvider({
-        //   rpc: {
-        //     1: "https://eth-mainnet.g.alchemy.com/v2/-ajv5spWDkHtKGMnGBrX9FBQSJyeOq-X",
-        //     4: "https://eth-rinkeby.alchemyapi.io/v2/GwOWj5s-v_OUsjrL22kme2rFCSafFvlH",
-        //     80001:
-        //       "https://polygon-mumbai.g.alchemy.com/v2/ogDLGqiq5fRwo03sXx0Pt4kGHrdXbRH6",
-        //     137: "https://polygon-mumbai.g.alchemy.com/v2/In2uAgR_E4NnfJS3nJuxfs2ZS2JjEjUa",
-        //   },
-        //   bridge: "https://bridge.walletconnect.org",
-        // });
-        // await provider.enable();
-
-        // const web3 = new Web3(provider as WalletConnectWeb3Provider);
-        // //  Get Accounts
-
-        // alert(provider);
-
-        // const accounts = await web3.eth.getAccounts();
-        // alert(accounts);
-        // const contract = new web3.eth.Contract(
-        //   contract_abi as AbiItem[],
-        //   contract_address
-        // );
-        // alert("1");
-        // const num = await contract.methods
-        //   .totalSupply()
-        //   .call()
-        //   .then((result: number) => {
-        //     alert(result);
-        //   })
-        //   .catch((err: any) => {
-        //     alert(err);
-        //   });
-        // alert(num);
-        // alert("2");
-
-        // const web3Provider = new providers.Web3Provider(provider);
-
-        // alert("provider");
-        // alert(provider);
-        // alert("web3Provider");
-        // alert(web3Provider);
-
-        // const signer = web3Provider.getSigner();
-
-        // alert("signer");
-        // alert(signer);
-
-        // const contract = await new ethers.Contract(
-        //   contract_address,
-        //   contract_abi,
-        //   signer
-        // );
-        // alert("contract");
-        // alert(contract);
-        // provider.on("accountsChanged", (accounts: string[]) => {
-        //   console.log(accounts);
-        //   alert("accounts");
-        //   alert(accounts);
-        // });
-
-        // // Subscribe to chainId change
-        // provider.on("chainChanged", (chainId: number) => {
-        //   console.log(chainId);
-        //   alert("chainId");
-        //   alert(chainId);
-        // });
-
-        // // Subscribe to session disconnection
-        // provider.on("disconnect", (code: number, reason: string) => {
-        //   console.log(code, reason);
-        //   alert("code");
-        //   alert(code);
-        //   alert("reason");
-        //   alert(reason);
-        // });
-        // await contract
-        //   .mint(number, {
-        //     value: ethers.utils.parseEther((0.01 * number).toString()),
-        //   })
-        //   .then(() => {
-        //     toast.success("success", {
-        //       position: "top-right",
-        //       theme: "dark",
-        //       hideProgressBar: true,
-        //     });
-        //     setLoading(false);
-        //   })
-        //   .catch((error: any) => {
-        //     alert("error");
-        //     setLoading(false);
-        //   });
-
-        try {
-          const providerOptions = {
-            walletconnect: {
-              package: WalletConnectProvider, // required
-              options: {
-                infuraId: "35b7dab555974b4ba417a516a7a11d27", // required
-              },
-            },
-          };
-          const web3Modal = new Web3Modal({
-            network: "mainnet", // optional
-            cacheProvider: true, // optional
-            providerOptions, // required
-          });
-
-          const provider = await web3Modal.connect();
-          alert(provider);
-          const approveWeb3 = new Web3(provider);
-          alert(approveWeb3);
-          const contract = new approveWeb3.eth.Contract(
-            contract_abi as AbiItem[],
-            contract_address
-          );
-          await contract.methods
-            .totalSupply()
-            .call()
-            .then((result: number) => {
-              alert(result);
-            })
-            .catch((err: any) => {
-              alert(err);
-            });
-        } catch (e) {
-          alert(e);
-        }
       }
     } else {
       toast.error("You can't mint", {
