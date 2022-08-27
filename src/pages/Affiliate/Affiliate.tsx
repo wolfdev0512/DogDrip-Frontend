@@ -29,10 +29,10 @@ const Landing: React.FC = () => {
       if (account) {
         alert(id);
         if (id === "0") {
-          const userID = localStorage.getItem("dogdripID");
-          if (userID) {
-            setShow(0);
-          }
+          localStorage.setItem("test", "Hello");
+          setTimeout(() => {
+            alert(localStorage.getItem("test"));
+          });
         } else {
           setShow(1);
         }
