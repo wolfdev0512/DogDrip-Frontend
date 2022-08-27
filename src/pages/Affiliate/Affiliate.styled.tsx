@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
-import LandingCollectionBg from "assets/Landing-Collection-Bg.png";
-import LandingTeamBg from "assets/Landing-Team-Bg.jpg";
-//----------------------------------------------------
+import LandingPage_Hero_Image from "assets/Landing-Mint-Bg.png";
 
-export const CollectionBackground = styled.div`
-  background: url(${LandingCollectionBg});
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
+//---------------------------------------------------------------------
 
-export const TeamBackground = styled.div`
-  background: url(${LandingTeamBg});
+export const Layout = styled.div`
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+  background: url(${LandingPage_Hero_Image});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
 `;

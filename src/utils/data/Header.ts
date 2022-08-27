@@ -32,6 +32,6 @@ export const MenuItemList = [
   {
     label: "AFFILIATE",
     flag: true,
-    link: "/affiliate",
+    link: "/affiliate/0",
   },
 ];

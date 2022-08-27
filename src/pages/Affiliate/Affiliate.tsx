@@ -1,40 +1,72 @@
-import React from "react";
-
-// @Layout
-import PageLayout from "layouts/MainLayout/AppLayout";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 // @Section
-import {
-  Hero,
-  Story,
-  Mint,
-  Collection,
-  Roadmap,
-  Team,
-  FAQ,
-} from "section/Landing";
+import { Header, Hero, Join, User } from "section/Affiliate";
 
 // @styled-component
-import { CollectionBackground, TeamBackground } from "./Affiliate.styled";
+import { Layout } from "./Affiliate.styled";
+
+// @web3-react
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "connectors/connectors";
+
+// @modal
+import { MetamaskModal } from "components/Modal";
 
 //------------------------------------------------------
 
 const Landing: React.FC = () => {
+  let { id } = useParams();
+
+  const { account, activate } = useWeb3React();
+
+  const [show, setShow] = useState(0);
+  const [showMetaModal, setShowMetaModal] = useState(true);
+
+  useEffect(() => {
+    if (!showMetaModal) {
+      if (account) {
+        if (id === "0") {
+          const userID = localStorage.getItem("dogdripID");
+          if (userID) {
+            setShow(0);
+          }
+        } else {
+          setShow(1);
+        }
+      } else {
+        console.log("first");
+        if (window.ethereum) {
+          activate(injected);
+        } else {
+          const dappUrl = window.location.href.split("//")[1];
+          const metamaskAppDeepLink =
+            "https://metamask.app.link/dapp/" + dappUrl;
+          window.open(metamaskAppDeepLink, "_self");
+        }
+      }
+    }
+  }, [account, showMetaModal]);
+
   return (
-    <PageLayout>
-      {/* <Hero />
-      <Mint />
-      <Story />
-      <CollectionBackground>
-        <Collection />
-        <Roadmap />
-      </CollectionBackground>
-      <TeamBackground>
-        <Team />
-        <FAQ />
-      </TeamBackground> */}
-      Hello
-    </PageLayout>
+    <Layout>
+      {showMetaModal && (
+        <MetamaskModal
+          setShow={() => {
+            setShowMetaModal(false);
+          }}
+        />
+      )}
+      {account && (
+        <>
+          <Header />
+          <Hero />
+          <Join />
+        </>
+      )}
+      {/* <User /> */}
+    </Layout>
   );
 };
 

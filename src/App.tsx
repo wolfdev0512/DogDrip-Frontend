@@ -44,7 +44,7 @@ const RouterManage: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/affiliate" element={<Affiliate />} />
+        <Route path="/affiliate/:id" element={<Affiliate />} />
       </Routes>
     </Router>
   );
