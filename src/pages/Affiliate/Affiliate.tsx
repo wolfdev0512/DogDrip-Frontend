@@ -27,6 +27,7 @@ const Landing: React.FC = () => {
   useEffect(() => {
     if (!showMetaModal) {
       if (account) {
+        alert(id);
         if (id === "0") {
           const userID = localStorage.getItem("dogdripID");
           if (userID) {
@@ -36,7 +37,6 @@ const Landing: React.FC = () => {
           setShow(1);
         }
       } else {
-        console.log("first");
         if (window.ethereum) {
           activate(injected);
         } else {
