@@ -13,16 +13,16 @@ const Hero: React.FC = () => {
   return (
     <Layout>
       <Container>
-        <Text>JOIN OUR COMMUNITY & GET EARLY ACCESS</Text>
-        <Button>JOIN DISCORD</Button>
+        <Text data-aos="fade-up">JOIN OUR COMMUNITY & GET EARLY ACCESS</Text>
+        <Button data-aos="fade-up">JOIN DISCORD</Button>
         <ItemList>
-          <Item>
+          <Item data-aos="zoom-in">
             <SiDiscord size={30} />
           </Item>
-          <Item>
+          <Item data-aos="zoom-in">
             <FaTwitter size={30} />
           </Item>
-          <Item>
+          <Item data-aos="zoom-in">
             <SiTelegram size={30} />
           </Item>
         </ItemList>

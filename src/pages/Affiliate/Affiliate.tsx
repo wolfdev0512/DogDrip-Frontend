@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-// @Section
-import { Header, Hero, Join, User } from "section/Affiliate";
+// @section
+import { Hero, Join } from "section/Affiliate";
 
 // @styled-component
 import { Layout } from "./Affiliate.styled";
@@ -12,41 +12,56 @@ import { useWeb3React } from "@web3-react/core";
 import { injected } from "connectors/connectors";
 
 // @modal
-import { MetamaskModal } from "components/Modal";
+import { MetamaskModal, RegisterModal } from "components/Modal";
+
+// @Layout
+import Header from "components/Header/Header";
+
+// @axios
+import axios from "axios";
 
 //------------------------------------------------------
 
 const Landing: React.FC = () => {
   let { id } = useParams();
+  let navigate = useNavigate();
 
   const { account, activate } = useWeb3React();
 
-  const [show, setShow] = useState(0);
   const [showMetaModal, setShowMetaModal] = useState(true);
+  const [showUserModal, setShowUserModal] = useState(false);
 
   useEffect(() => {
-    if (!showMetaModal) {
-      if (account) {
-        alert(id);
-        if (id === "0") {
-          localStorage.setItem("test", "Hello");
-          setTimeout(() => {
-            alert(localStorage.getItem("test"));
-          });
+    (async () => {
+      if (!showMetaModal) {
+        if (account) {
+          const userID = localStorage.getItem("dogdripID");
+          if (userID) {
+            const tempState = await axios.get(
+              process.env.REACT_APP_BACKENDURL + `get/${userID}`
+            );
+            if (tempState.data !== "") {
+              navigate("/dashboard");
+            }
+          } else {
+            if (id === "0") {
+              setShowUserModal(false);
+            } else {
+              setShowUserModal(true);
+            }
+          }
         } else {
-          setShow(1);
-        }
-      } else {
-        if (window.ethereum) {
-          activate(injected);
-        } else {
-          const dappUrl = window.location.href.split("//")[1];
-          const metamaskAppDeepLink =
-            "https://metamask.app.link/dapp/" + dappUrl;
-          window.open(metamaskAppDeepLink, "_self");
+          if (window.ethereum) {
+            activate(injected);
+          } else {
+            const dappUrl = window.location.href.split("//")[1];
+            const metamaskAppDeepLink =
+              "https://metamask.app.link/dapp/" + dappUrl;
+            window.open(metamaskAppDeepLink, "_self");
+          }
         }
       }
-    }
+    })();
   }, [account, showMetaModal]);
 
   return (
@@ -61,11 +76,17 @@ const Landing: React.FC = () => {
       {account && (
         <>
           <Header />
-          <Hero />
+          <Hero setShow={() => setShowUserModal(true)} />
           <Join />
+          {showUserModal && (
+            <RegisterModal
+              setShow={() => {
+                setShowUserModal(false);
+              }}
+            />
+          )}
         </>
       )}
-      {/* <User /> */}
     </Layout>
   );
 };

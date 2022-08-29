@@ -22,30 +22,10 @@ export const Layout = styled.div`
     padding-top: 150px;
   }
 `;
-
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & > :not(:last-child) {
-    margin-bottom: 40px;
-  }
-  width: 1320px;
-
-  @media screen and (max-width: 1440px) {
-    width: 1150px;
-  }
-  @media screen and (max-width: 1250px) {
-    width: 900px;
-  }
-  @media screen and (max-width: 1024px) {
-    width: 700px;
-  }
-  @media screen and (max-width: 768px) {
-    width: 510px;
-  }
-  @media screen and (max-width: 570px) {
-    width: 90%;
-  }
-`;
+export const Main = styled.div``;
+export const ImageContainer = styled.div``;
+export const Image = styled.div``;
+export const UserInfo = styled.div``;
+export const Name = styled.div``;
+export const Email = styled.div``;
+export const InviteUsers = styled.div``;

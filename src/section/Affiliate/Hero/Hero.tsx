@@ -21,26 +21,35 @@ import { FaRetweet, FaUserCircle, FaHandHoldingUsd } from "react-icons/fa";
 
 //--------------------------------------------------------------
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  setShow: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ setShow }) => {
   return (
     <Layout>
       <Container>
-        <Title>
+        <Title data-aos="fade-up">
           Earn up to <Money>$300</Money> by inviting friends!
         </Title>
-        <Detail>
+        <Detail data-aos="fade-up">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis
           similique placeat dolorum aliquam illum omnis, reiciendis officia
           consequuntur beatae iste, voluptatem eveniet? Aut sit temporibus
           perferendis odio laudantium necessitatibus
         </Detail>
-        <StartButton>
+        <StartButton
+          data-aos="fade-up"
+          onClick={() => {
+            setShow();
+          }}
+        >
           <RiUserAddFill />
           <div>START EARNING NOW</div>
         </StartButton>
 
         <ItemBox>
-          <Item>
+          <Item data-aos="zoom-in">
             <Icon>
               <FaRetweet size={50} />
             </Icon>
@@ -50,7 +59,7 @@ const Hero: React.FC = () => {
               assumenda?
             </ItemDetail>
           </Item>
-          <Item>
+          <Item data-aos="zoom-in">
             <Icon>
               <FaUserCircle size={50} />
             </Icon>
@@ -60,7 +69,7 @@ const Hero: React.FC = () => {
               assumenda?
             </ItemDetail>
           </Item>
-          <Item>
+          <Item data-aos="zoom-in">
             <Icon>
               <FaHandHoldingUsd size={50} />
             </Icon>

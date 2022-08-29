@@ -40,7 +40,6 @@ const MetamaskModal: React.FC<ModalProps> = ({ setShow }) => {
       <Modal data-aos="zoom-in" ref={modalRef}>
         <CloseButton
           onClick={() => {
-            console.log("object");
             setShow();
           }}
           ref={closeRef}

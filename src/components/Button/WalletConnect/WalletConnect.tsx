@@ -26,8 +26,6 @@ const Header: React.FC = () => {
     (async () => {
       if (account && window.ethereum) {
         if (chainId !== 80001) {
-          console.log(chainId, 80001);
-          console.log(account);
           try {
             await library.provider.request({
               method: "wallet_switchEthereumChain",

@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 // @page
 const Landing = React.lazy(() => import("./pages/Landing/Landing"));
 const Affiliate = React.lazy(() => import("./pages/Affiliate/Affiliate"));
+const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard"));
 
 //------------------------------------------------------------------
 
@@ -45,6 +46,7 @@ const RouterManage: React.FC = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/affiliate/:id" element={<Affiliate />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );

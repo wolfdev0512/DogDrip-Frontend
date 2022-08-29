@@ -21,7 +21,7 @@ export const Layout = styled.div`
 export const Modal = styled.div`
   position: relative;
 
-  width: 300px;
+  width: 320px;
   height: fit-content;
 
   padding: 30px 20px 20px 20px;
@@ -31,6 +31,10 @@ export const Modal = styled.div`
   background: black;
 
   border: 1px solid white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 export const CloseButton = styled.div`
   position: absolute;
@@ -46,16 +50,34 @@ export const CloseButton = styled.div`
   z-index: 3;
 `;
 export const Title = styled.div`
-  display: flex;
-  justify-content: center;
-  img {
-    width: 70px;
-    height: 70px;
-  }
+  font-size: 35px;
+  color: #07fea3;
 `;
 export const Detail = styled.div`
-  margin-top: 10px;
-
   color: white;
-  text-align: center;
+  margin: 8px 0px 20px 0px;
+`;
+export const Input = styled.input`
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 20px 0px 0px 0px;
+  padding: 0px 10px 0px 10px;
+`;
+export const Button = styled.button`
+  margin-top: 20px;
+  padding: 5px 20px;
+  background: #07fea3;
+
+  border-radius: 10px;
+  cursor: pointer;
+`;
+
+export const InviteUser = styled.div`
+  color: white;
+  font-size: 20px;
+  margin: -10px 0px 20px 0px;
+`;
+
+export const UserName = styled.span`
+  color: #07fea3;
 `;
