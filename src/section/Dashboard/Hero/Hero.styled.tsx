@@ -132,6 +132,12 @@ export const InviteUserList = styled.div`
     margin-bottom: 10px;
   }
   overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 export const UserItem = styled.div`
   display: flex;
