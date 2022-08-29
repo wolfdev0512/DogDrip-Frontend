@@ -9,6 +9,7 @@ export const Layout = styled.div`
 
   width: 100%;
   min-height: 100vh;
+  background: url(${LandingPage_Hero_Image});
   background-repeat: no-repeat;
   background-size: 100% 100%;
 `;
