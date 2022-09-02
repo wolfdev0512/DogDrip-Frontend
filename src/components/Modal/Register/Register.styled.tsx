@@ -52,10 +52,12 @@ export const CloseButton = styled.div`
 export const Title = styled.div`
   font-size: 35px;
   color: #07fea3;
+  text-align: center;
 `;
 export const Detail = styled.div`
   color: white;
   margin: 8px 0px 20px 0px;
+  text-align: center;
 `;
 export const Input = styled.input`
   font-size: 18px;
@@ -76,6 +78,7 @@ export const InviteUser = styled.div`
   color: white;
   font-size: 20px;
   margin: -10px 0px 20px 0px;
+  text-align: center;
 `;
 
 export const UserName = styled.span`

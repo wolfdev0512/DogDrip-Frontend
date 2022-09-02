@@ -24,6 +24,9 @@ import axios from "axios";
 // @Toast
 import { toast } from "react-toastify";
 
+// @web3-react
+import { useWeb3React } from "@web3-react/core";
+
 // @type
 
 interface ModalProps {
@@ -34,6 +37,8 @@ interface ModalProps {
 const RegisterModal: React.FC<ModalProps> = ({ setShow }) => {
   const { id } = useParams();
   let navigate = useNavigate();
+  const { account } = useWeb3React();
+
   const modalRef = useRef<HTMLDivElement | null>(null);
   const closeRef = useRef<HTMLDivElement | null>(null);
 
@@ -149,6 +154,7 @@ const RegisterModal: React.FC<ModalProps> = ({ setShow }) => {
           last: last,
           email: email,
           img: image,
+          address: account,
         })
         .then((res) => {
           return res.data;
@@ -170,6 +176,7 @@ const RegisterModal: React.FC<ModalProps> = ({ setShow }) => {
         navigate("/dashboard");
       }
     } else {
+      console.log("Here", account);
       const result = await axios
         .post(process.env.REACT_APP_BACKENDURL + `invite`, {
           first: first,
@@ -177,6 +184,7 @@ const RegisterModal: React.FC<ModalProps> = ({ setShow }) => {
           email: email,
           img: image,
           inviteId: id,
+          address: account,
         })
         .then((res) => {
           return res.data;

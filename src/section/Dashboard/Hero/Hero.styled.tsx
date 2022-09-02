@@ -174,6 +174,10 @@ export const UserEmail = styled.div`
   width: max-content;
   color: white;
 `;
+export const MintState = styled.div`
+  width: max-content;
+  color: #07fea3;
+`;
 
 export const Info = styled.div`
   width: 100%;
@@ -186,4 +190,28 @@ export const Info = styled.div`
     flex-direction: column;
     align-items: center;
   }
+`;
+export const Level = styled.div`
+  margin-top: 8px;
+  font-size: 20px;
+  width: max-content;
+  color: #07fea3;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ClaimButton = styled.button`
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 8px 70px;
+
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  background: #07fea3;
+  cursor: pointer;
 `;

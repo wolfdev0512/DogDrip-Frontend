@@ -13,7 +13,7 @@ import {
   Team,
   FAQ,
 } from "section/Landing";
-
+import { Join } from "section/Affiliate";
 // @styled-component
 import { CollectionBackground, TeamBackground } from "./Landing.styled";
 
@@ -32,6 +32,7 @@ const Landing: React.FC = () => {
       <TeamBackground>
         <Team />
         <FAQ />
+        <Join />
       </TeamBackground>
     </PageLayout>
   );
